@@ -7,7 +7,7 @@ import uuid
 
 class BaseModel:
     def __init__(self, *args, **kwargs):
-        if (**kwargs is not null):
+        if kwargs:
             self.id = kwargs['id']
             self.created_at = datetime.strptime(kwargs['created_at'],
                                                 "%Y-%m-%dT%H:%M:%S.%f")
