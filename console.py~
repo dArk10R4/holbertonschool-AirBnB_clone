@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+import cmd, sys
+# from turtle import *
+
+
+class HBNBCommand(cmd.Cmd):
+    '''doc'''
+    prompt = '(hbnb)'
+    
+    def do_quit(self):
+        'Stop recording, close the turtle window, and exit:  BYE'
+        self.close()
+        quit()
+        return True
+
+    def do_EOF(self):
+        'Stop recording, close the turtle window, and exit:  BYE'
+        self.close()
+        # bye()
+        return True
+
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
