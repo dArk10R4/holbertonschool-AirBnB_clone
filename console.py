@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+'''doc'''
 import cmd, sys
-# from turtle import *
 
 
 class HBNBCommand(cmd.Cmd):
