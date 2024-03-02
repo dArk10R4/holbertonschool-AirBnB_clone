@@ -2,6 +2,7 @@
 '''doc'''
 import json
 import os
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -14,7 +15,8 @@ class FileStorage:
         return FileStorage.__objects
 
     def new(self, obj):
-        FileStorage.__objects[f"{obj.__class__.__name__}.{obj.id}"] = obj
+        class_name = obj.__class__.__name__
+        FileStorage.__objects[f"{class_name}.{obj.id}"] = obj
 
     def save(self):
         new_items = {}
@@ -27,4 +29,7 @@ class FileStorage:
     def reload(self):
         if os.path.exists(FileStorage.__file_path):
             with open(FileStorage.__file_path, encoding="UTF") as f:
-                FileStorage.__objects = json.load(f)
+                objs = json.load(f)
+            for key in objs:
+                class_name = key.split(".")[0]
+                FileStorage.__objects[key] = eval(f"{class_name}(**objs[key])")
