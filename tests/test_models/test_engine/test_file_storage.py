@@ -31,6 +31,8 @@ class TestFileStorage(unittest.TestCase):
                       self.file_storage.all().keys())
 
     def test_save(self):
+        base_model = BaseModel()
+        self.file_storage.new(base_model)
         self.file_storage.save()
         with open("file.json", "r") as file:
             self.assertNotEqual(file.read(), "")
