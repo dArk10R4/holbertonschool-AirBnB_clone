@@ -13,7 +13,7 @@ class BaseModel:
         '''Initializer'''
         
         if kwargs:
-            delattr(kwargs, '__class__')
+            del kwargs['__class__']
             self.__dict__ = kwargs
             # self.id = kwargs['id']
             self.created_at = datetime.strptime(kwargs['created_at'],
