@@ -27,3 +27,5 @@ class TestCity(unittest.TestCase):
         self.assertEqual(self.city.state_id, "")
         self.city.state_id = "123"
         self.assertEqual(self.city.state_id, "123")
+if __name__ == "__main__":
+    unittest.main()

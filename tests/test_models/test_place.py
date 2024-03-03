@@ -38,3 +38,5 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(self.place.name, "")
         self.place.name = "San Francisco"
         self.assertEqual(self.place.name, "San Francisco")
+if __name__ == "__main__":
+    unittest.main()

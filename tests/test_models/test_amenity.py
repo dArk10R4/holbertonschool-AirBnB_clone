@@ -22,3 +22,5 @@ class TestAmenity(unittest.TestCase):
         self.assertEqual(self.amenity.name, "")
         self.amenity.name = "Wifi"
         self.assertEqual(self.amenity.name, "Wifi")
+if __name__ == "__main__":
+    unittest.main()
