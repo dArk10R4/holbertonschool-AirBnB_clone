@@ -13,7 +13,9 @@ class BaseModel:
         '''Initializer'''
         
         if kwargs:
-            self.id = kwargs['id']
+            delattr(kwargs, '__class__')
+            self.__dict__ = kwargs
+            # self.id = kwargs['id']
             self.created_at = datetime.strptime(kwargs['created_at'],
                                                 "%Y-%m-%dT%H:%M:%S.%f")
             self.updated_at = datetime.strptime(kwargs['updated_at'],
