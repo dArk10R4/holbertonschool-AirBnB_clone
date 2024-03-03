@@ -36,6 +36,8 @@ class TestFileStorage(unittest.TestCase):
         self.file_storage.save()
         with open("file.json", "r") as file:
             self.assertNotEqual(file.read(), "")
+            self.assertIn("{}.{}".format(base_model.__class__.__name__,
+                                         self.b1.id), file.read())
 
     def test_reload(self):
         self.file_storage.save()
