@@ -42,20 +42,19 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
+        my_class = classes.get(args[0])
+        if not my_class:
+            print("** class doesn't exist **")
+            return         
         if len(args) > 1:
-            my_class = classes.get(args[0])
 
-            if my_class:
-                storage.reload()
-                for key, value in  storage.objects.items():
-                    ids = key.split(".")[1]
-                    if ids ==  args[1]:
-                        print(value)
-                        return
-                print("** no instance found **")
-            else:
-                print("** class doesn't exist **")
-                return
+            storage.reload()
+            for key, value in  storage.objects.items():
+                ids = key.split(".")[1]
+                if ids ==  args[1]:
+                    print(value)
+                    return
+            print("** no instance found **")
         else:
             print("** instance id missing **")
             return
@@ -65,21 +64,19 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
+        my_class = classes.get(args[0])
+        if not my_class:
+            print("** class doesn't exist **")
+            return 
         if len(args) > 1:
-            my_class = classes.get(args[0])
-
-            if my_class:
-                storage.reload()
-                for key, value in  storage.objects.items():
-                    ids = key.split(".")[1]
-                    if ids ==  args[1]:
-                        storage.objects.pop(key)
-                        storage.save()
-                        return
-                print("** no instance found **")
-            else:
-                print("** class doesn't exist **")
-                return
+            storage.reload()
+            for key, value in  storage.objects.items():
+                ids = key.split(".")[1]
+                if ids ==  args[1]:
+                    storage.objects.pop(key)
+                    storage.save()
+                    return
+            print("** no instance found **")
         else:
             print("** instance id missing **")
             return
@@ -101,7 +98,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        my_class = classes.get(arg)
+        my_class = classes.get(args[0])
         if not my_class:
             print("** class doesn't exist **")
             return
