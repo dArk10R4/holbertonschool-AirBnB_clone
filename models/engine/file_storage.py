@@ -4,6 +4,7 @@ import json
 import os
 from models.base_model import BaseModel
 from models.user import User
+from models import classes
 
 class FileStorage:
     '''doc'''
@@ -40,4 +41,5 @@ class FileStorage:
                 objs = json.load(f)
             for key in objs:
                 class_name = key.split(".")[0]
-                FileStorage.__objects[key] = eval(f"{class_name}(**objs[key])")
+                FileStorage.__objects[key] = classes[class_name](**objs[key])
+                # eval(f"{class_name}(**objs[key])")
