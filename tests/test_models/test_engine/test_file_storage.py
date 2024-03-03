@@ -5,6 +5,7 @@
 from models.engine.file_storage import FileStorage
 import unittest
 from models.base_model import BaseModel
+import os
 
 
 class TestFileStorage(unittest.TestCase):
@@ -34,10 +35,11 @@ class TestFileStorage(unittest.TestCase):
         base_model = BaseModel()
         self.file_storage.new(base_model)
         self.file_storage.save()
-        with open("file.json", "r") as file:
-            self.assertNotEqual(file.read(), "")
+        with open(os.path.join(os.getcwd(), "file.json"), "r") as file:
+            a = file.read()
+            self.assertNotEqual(a, "")
             self.assertIn("{}.{}".format(base_model.__class__.__name__,
-                                         self.b1.id), file.read())
+                                         base_model.id), a)
 
     def test_reload(self):
         self.file_storage.save()
