@@ -50,8 +50,9 @@ class HBNBCommand(cmd.Cmd):
 
             storage.reload()
             for key, value in  storage.objects.items():
+                class_name = key.split(".")[0]
                 ids = key.split(".")[1]
-                if ids ==  args[1]:
+                if ids ==  args[1] and class_name == args[0]:
                     print(value)
                     return
             print("** no instance found **")
@@ -71,8 +72,10 @@ class HBNBCommand(cmd.Cmd):
         if len(args) > 1:
             storage.reload()
             for key, value in  storage.objects.items():
+                class_name = key.split(".")[0]
+
                 ids = key.split(".")[1]
-                if ids ==  args[1]:
+                if ids ==  args[1] and class_name == args[0]:
                     storage.objects.pop(key)
                     storage.save()
                     return
