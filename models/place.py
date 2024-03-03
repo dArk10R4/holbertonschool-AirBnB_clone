@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+
+"""Place module that contains the Place class."""
+
+
 from models.base_model import BaseModel
 
 class Place(BaseModel):

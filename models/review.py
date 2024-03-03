@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+
+"""Review module that contains the Review class."""
+
+
 from models.base_model import BaseModel
 
 class Review(BaseModel):
