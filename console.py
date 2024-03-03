@@ -3,6 +3,8 @@
 import cmd
 # from models.base_model import BaseModel
 from models import base_model
+from models import classes
+
 from models import storage
 import copy
 # from models.engine.file_storage import FileStorage
@@ -27,8 +29,9 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
         else:
-            if hasattr(base_model, arg):
-                my_model = base_model.BaseModel()
+            my_class = classes.get(arg)
+            if my_class:
+                my_model = my_class()
                 my_model.save()
                 print(my_model.id)
             else:

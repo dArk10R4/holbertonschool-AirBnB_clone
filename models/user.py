@@ -11,8 +11,3 @@ class User(BaseModel):
     def __init__(self, *args, **kwargs):
         """Initializer for User class."""
         super().__init__(*args, **kwargs)
-        if kwargs:
-            self.email = kwargs['email']
-            self.password = kwargs['password']
-            self.first_name = kwargs['first_name']
-            self.last_name = kwargs['last_name']

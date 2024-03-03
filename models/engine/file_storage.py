@@ -17,7 +17,7 @@ class FileStorage:
 
     @objects.setter
     def objects(self, value):
-        FileSorage.__objects = value
+        FileStorage.__objects = value
 
     def all(self):
         return FileStorage.__objects
