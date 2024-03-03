@@ -6,6 +6,8 @@ from models.base_model import BaseModel
 import unittest
 import datetime
 import time
+from models import storage
+import os
 
 
 class TestBaseModel(unittest.TestCase):
@@ -44,8 +46,15 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save(self):
         time.sleep(0.3)
+        self.base.name = "Holberton"
         self.base.save()
         self.assertNotEqual(self.base.created_at, self.base.updated_at)
+        self.assertIn("BaseModel." + self.base.id, storage.all())
+        with open(os.path.join(os.getcwd(), "file.json"), "r") as file:
+            a = file.read()
+            self.assertNotEqual(a, "")
+            self.assertIn("{}.{}".format(self.base.__class__.__name__,
+                                         self.base.id), a)
 
     def test_to_dict(self):
         self.assertIsInstance(self.base.to_dict(), dict)

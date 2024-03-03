@@ -48,7 +48,6 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsInstance(self.file_storage.all(), dict)
         self.assertNotEqual(len(self.file_storage._FileStorage__objects), 0)
 
-
     def test_reload_no_file(self):
         self.file_storage.save()
         self.file_storage.__class__.__file_path = "no_file.json"
