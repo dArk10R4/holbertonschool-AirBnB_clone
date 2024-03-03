@@ -10,20 +10,21 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
-classes = {"BaseModel": BaseModel, 
+classes = {"BaseModel": BaseModel,
            "User": User,
            "State": State,
-            "City": City,
-            "Amenity": Amenity,
-            "Place": Place,
-            "Review": Review
+           "City": City,
+           "Amenity": Amenity,
+           "Place": Place,
+           "Review": Review
            }
+
 
 class FileStorage:
     '''doc'''
 
     __file_path = 'file.json'
-    __objects={}
+    __objects = {}
 
     @property
     def objects(self):
@@ -44,7 +45,7 @@ class FileStorage:
         new_items = {}
         for key, value in FileStorage.__objects.items():
             new_items[key] = value.to_dict()
-            
+
         with open(FileStorage.__file_path, 'w') as write:
             json.dump(new_items, write)
 

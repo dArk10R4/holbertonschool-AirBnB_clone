@@ -8,10 +8,10 @@ import models
 
 class BaseModel:
     '''Base class'''
-    
+
     def __init__(self, *args, **kwargs):
         '''Initializer'''
-        
+
         if kwargs:
             del kwargs['__class__']
             self.__dict__ = kwargs
@@ -28,18 +28,18 @@ class BaseModel:
 
     def __str__(self):
         '''String of BaseModel'''
-        
+
         return (f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
 
     def save(self):
         '''update updated item'''
-        
+
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
         '''Dictionary represendation'''
-        
+
         new_dict = self.__dict__.copy()
         new_dict['__class__'] = self.__class__.__name__
         new_dict['created_at'] = self.created_at.isoformat()
