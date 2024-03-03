@@ -1,13 +1,8 @@
 #!/usr/bin/python3
 '''doc'''
 import cmd
-# from models.base_model import BaseModel
-from models import base_model
 from models import classes
-
 from models import storage
-import copy
-# from models.engine.file_storage import FileStorage
 
 
 class HBNBCommand(cmd.Cmd):
