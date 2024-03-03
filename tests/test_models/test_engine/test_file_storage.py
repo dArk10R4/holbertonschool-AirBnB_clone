@@ -43,7 +43,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_reload(self):
         self.file_storage.save()
-        self.file_storage.objects.clear()
+        self.file_storage.objects = {}
         self.file_storage.reload()
         self.assertIsInstance(self.file_storage.all(), dict)
         self.assertNotEqual(len(self.file_storage._FileStorage__objects), 0)
