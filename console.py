@@ -4,6 +4,7 @@ import cmd
 # from models.base_model import BaseModel
 from models import base_model
 from models import storage
+import copy
 # from models.engine.file_storage import FileStorage
 
 
@@ -107,14 +108,12 @@ class HBNBCommand(cmd.Cmd):
         storage.reload()
         for key, value in  storage.objects.items():
             ids = key.split(".")[1]
-            if ids ==  args[1]:
-                value[args[2]]=args[3]
+            if ids ==  args[1]:                
+                setattr(storage.objects[key], args[2], args[3])
                 storage.save()
                 return
             else:
                 print("** no instance found **")
-        
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
