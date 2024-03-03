@@ -17,7 +17,6 @@ class TestUser(unittest.TestCase):
         self.assertIsInstance(user.email, str)
         self.assertIsInstance(user.password, str)
     def test_email(self):
-        print(self.user)
         self.assertEqual(self.user.email, "")
         self.user.email = "nese@mail.com"
         self.assertEqual(self.user.email, "nese@mail.com")
