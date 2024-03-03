@@ -49,6 +49,9 @@ class TestFileStorage(unittest.TestCase):
     def test___file_path(self):
         self.assertIsInstance(self.file_storage._FileStorage__file_path, str)
 
+    def test___objects(self):
+        self.assertIsInstance(self.file_storage._FileStorage__objects, dict)
+
 
 if __name__ == "__main__":
     unittest.main()
