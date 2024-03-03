@@ -16,5 +16,10 @@ class TestUser(unittest.TestCase):
         self.assertIsInstance(user.last_name, str)
         self.assertIsInstance(user.email, str)
         self.assertIsInstance(user.password, str)
+    def test_email(self):
+        print(self.user)
+        self.assertEqual(self.user.email, "")
+        self.user.email = "nese@mail.com"
+        self.assertEqual(self.user.email, "nese@mail.com")
 if __name__ == "__main__":
     unittest.main()
