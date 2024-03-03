@@ -5,12 +5,16 @@
 from models.place import Place
 import unittest
 
+
 class TestPlace(unittest.TestCase):
     place = None
+
     def setUp(self) -> None:
         self.place = Place()
+
     def tearDown(self) -> None:
         del self.place
+
     def test_create_place(self):
         place = Place()
         self.assertIsInstance(place, Place)
@@ -26,17 +30,22 @@ class TestPlace(unittest.TestCase):
         self.assertIsInstance(place.longitude, float)
         self.assertIsInstance(place.amenity_ids, list)
         del place
+
     def test_city_id(self):
         self.assertEqual(self.place.city_id, "")
         self.place.city_id = "123"
         self.assertEqual(self.place.city_id, "123")
+
     def test_user_id(self):
         self.assertEqual(self.place.user_id, "")
         self.place.user_id = "123"
         self.assertEqual(self.place.user_id, "123")
+
     def test_name(self):
         self.assertEqual(self.place.name, "")
         self.place.name = "San Francisco"
         self.assertEqual(self.place.name, "San Francisco")
+
+
 if __name__ == "__main__":
     unittest.main()

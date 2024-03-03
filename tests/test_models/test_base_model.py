@@ -7,6 +7,7 @@ import unittest
 import datetime
 import time
 
+
 class TestBaseModel(unittest.TestCase):
     base = None
 
@@ -33,7 +34,9 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(self.base.created_at, datetime.datetime)
 
     def test_updated_at(self):
-        self.assertIsInstance(self.base.updated_at, datetime.datetime, "Not a datetime object")
+        self.assertIsInstance(self.base.updated_at,
+                              datetime.datetime,
+                              "Not a datetime object")
 
     def test_str(self):
         self.assertIsInstance(self.base.__str__(), str)
