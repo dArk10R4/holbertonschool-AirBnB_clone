@@ -43,7 +43,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         if len(args) > 1:
-            if hasattr(base_model, args[0]):
+            my_class = classes.get(args[0])
+
+            if my_class:
                 storage.reload()
                 for key, value in  storage.objects.items():
                     ids = key.split(".")[1]
@@ -64,7 +66,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         if len(args) > 1:
-            if hasattr(base_model, args[0]):
+            my_class = classes.get(args[0])
+
+            if my_class:
                 storage.reload()
                 for key, value in  storage.objects.items():
                     ids = key.split(".")[1]
@@ -81,7 +85,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
     def do_all(self, arg):
-        if not arg or hasattr(base_model, arg):
+        if not arg or classes.get(arg):
             storage.reload()
             objs = []
             for obj_id in storage.objects.keys():
@@ -96,7 +100,9 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-        if not hasattr(base_model, args[0]):
+
+        my_class = classes.get(arg)
+        if not my_class:
             print("** class doesn't exist **")
             return
         if len(args) < 2:
