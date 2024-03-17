@@ -1,3 +1,8 @@
+/*
+ * === Filters class style ===
+ */
+
+/* Filters style */
 .filters {
     background-color: #fff;
     height: 70px;
@@ -34,7 +39,8 @@
     height: 100%;
     width: 25%;
     margin-left: 40px;
-
+    position: relative;
+    z-index: 999;
 }
 
 /* Locations border */
@@ -45,7 +51,8 @@
 /* Header 3 and Header 4 style */
 .filters h3,
 .filters h4 {
-    margin: 10px 0;
+    margin: 10px;
+    /* margin: 10px 0 10px 40px; */
 }
 
 /* Header 3 style */
@@ -57,4 +64,43 @@
 .filters h4 {
     font-size: 14px;
     font-weight: 400;
+}
+
+/* Header 2 style */
+.filters h2 {
+    font-size: 16px;
+}
+
+
+.filters .locations:hover .popover,
+.filters .amenities:hover .popover {
+    display: block;
+}
+
+
+.filters .popover {
+    display: none;
+    background-color: #FAFAFA;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    position: absolute;
+    width: 100%;
+    left: -40px;
+    padding: 40px 0 40px 40px;
+    margin-top: 3px;
+}
+
+
+.filters .popover ul {
+    list-style: none;
+}
+
+
+.filters .popover ul:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+
+.filters .popover ul li {
+    padding: 8px 20px;
 }
